@@ -3,6 +3,13 @@ from models.contact import Contact
 from utils.db import db
 contacts = Blueprint('contacts',__name__)
     
+@contacts.route('/', methods=['GET'])
+def getMensaje():
+    if request.method=='GET':
+        data      = {}        
+        data["contactos"]='flask-crud-back'
+        return jsonify(data)
+    
 @contacts.route('/contactos', methods=['GET'])
 def getContactos():
     if request.method=='GET':
