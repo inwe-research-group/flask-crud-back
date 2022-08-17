@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify, redirect, url_for
+from flask import Blueprint, request,jsonify, redirect, url_for
 from models.contact import Contact
 from utils.db import db
 contacts = Blueprint('contacts',__name__)
@@ -52,7 +52,9 @@ def delete():
     id        = body['id']
     contacto=Contact.query.get(id)
     db.session.delete(contacto)
-    db.session.commit()     
-    return redirect(url_for('contacts.index'))   
+    db.session.commit()       
+    return redirect(url_for('contacts.index'))       
+
+
 
     
